@@ -5,6 +5,7 @@ import SearchIcon from '@mui/icons-material/Search';
 
 const Header = () => {
   const [search,setSearch] = useState('');
+
   return (
     <AppBar position="static">
       <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
@@ -36,6 +37,8 @@ const Header = () => {
               <SearchIcon />
             </Box>
             <InputBase 
+              value={search}
+              onChange={setSearch}
               placeholder="Search..." 
               sx={{
                 color: 'inherit',
