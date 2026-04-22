@@ -1,29 +1,53 @@
-import {Autocomplete} from "@react-google-maps/api";
-import {AppBar, Typography, InputBase, Toolbar,Box} from "@mui/material";
-import SearchIcon from "@material-ui/icons/Search";
+import React from 'react';
+import { Autocomplete } from '@react-google-maps/api';
+import { AppBar, Typography, InputBase, Toolbar, Box, alpha } from '@mui/material';
+import SearchIcon from '@mui/icons-material/Search';
+
 const Header = () => {
   return (
     <AppBar position="static">
-      <Toolbar className={classes.toolbar}>
-          <Typography variant="h5" className={classes.title}>
-              Travel Advisor
+      <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
+        <Typography 
+          variant="h5" 
+          sx={{ display: { xs: 'none', sm: 'block' } }}
+        >
+          Travel Advisor
+        </Typography>
+        
+        <Box display="flex" alignItems="center">
+          <Typography variant="h6" sx={{ display: { xs: 'none', sm: 'block' }, mr: 2 }}>
+            Explore new places
           </Typography>
-          <Box display="flex">
-            <Typography variant="h6" className={classes.title}>
-                Explore new places
-            </Typography>
-            <AutoComplete>
-              <div className={classes.search}>
-                  <div className={classes.searchIcon}>
-                        <SearchIcon />
-                  </div>
-                  <InputBase placeholder="Search..." classes={{root:classes.inputRoot. input:classes.inputInput}} />
-              </div>
-            </AutoComplete>
+          
+          {/* To wrap this with Autocomplete later once the API is set up */}
+          <Box 
+            sx={{
+              position: 'relative',
+              borderRadius: (theme) => theme.shape.borderRadius,
+              backgroundColor: (theme) => alpha(theme.palette.common.white, 0.15),
+              '&:hover': { backgroundColor: (theme) => alpha(theme.palette.common.white, 0.25) },
+              marginRight: 2,
+              marginLeft: { xs: 0, sm: 3 },
+              width: { xs: '100%', sm: 'auto' },
+            }}
+          >
+            <Box sx={{ padding: '0 16px', height: '100%', position: 'absolute', pointerEvents: 'none', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              <SearchIcon />
+            </Box>
+            <InputBase 
+              placeholder="Search..." 
+              sx={{
+                color: 'inherit',
+                padding: '8px 8px 8px 0',
+                paddingLeft: '48px', // space for the icon
+                width: { xs: '100%', md: '20ch' },
+              }}
+            />
           </Box>
+        </Box>
       </Toolbar>
     </AppBar>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;
