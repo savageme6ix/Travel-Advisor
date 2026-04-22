@@ -1,23 +1,16 @@
-import Header from "./Components/Header/Header"
-import List from "./Components/List/List"
-import Map from "./Components/Map/Map"
-import {CssBaseline, Grid} from '@mui/material';
+import Header from "./Components/Header";
+import List from "./Components/List";
+import Map from "./Components/Map";
+import { Box } from "@mui/material";
 
 const App = () => {
   return (
-       <>
-        <CssBaseline />
-        <Header />
-        <Grid container spacing={3} style={{width:'100%'}}>
-            <Grid item xs={12} md={4}>
-              <List />
-            </Grid>
-            <Grid item xs={12} md={8}>
-              <Map />
-            </Grid>
-        </Grid>
-       </>
-  )
-}
+    <Box sx={{ display: "flex", height: "90vh" }}>
+      <Box sx={{ width: "30%" }}>LIST</Box>
 
-export default App
+      <Box sx={{ width: "70%" }}>MAP</Box>
+    </Box>
+  );
+};
+
+export default App;
