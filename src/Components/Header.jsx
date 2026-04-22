@@ -38,7 +38,7 @@ const Header = () => {
             </Box>
             <InputBase 
               value={search}
-              onChange={setSearch}
+              onChange={(e)=> setSearch(e.target.value)}
               placeholder="Search..." 
               sx={{
                 color: 'inherit',
