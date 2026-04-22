@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Autocomplete } from '@react-google-maps/api';
 import { AppBar, Typography, InputBase, Toolbar, Box, alpha } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 
 const Header = () => {
+  const [search,setSearch] = useState('');
   return (
     <AppBar position="static">
       <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
